@@ -1,5 +1,8 @@
-English: [guide](guide.md)
-
+---
+title: Guida
+toc: true
+alt: /guide
+---
 # HugeCommander — guida per l'utente
 
 Questa guida spiega come usare HugeCommander. In ogni sezione trovi cosa fa e

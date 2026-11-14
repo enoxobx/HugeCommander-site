@@ -1,3 +1,10 @@
 title: HugeCommander
-description: File manager a doppio pannello per Windows · Dual-pane file manager for Windows
+description: File manager a doppio pannello per Windows, veloce e pensato per la tastiera.
 lang: it
+exclude:
+  - README.md
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

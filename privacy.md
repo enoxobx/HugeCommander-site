@@ -1,3 +1,7 @@
+---
+title: Informativa sulla privacy
+alt: /privacy#english
+---
 # HugeCommander — Informativa sulla privacy / Privacy policy
 
 Ultimo aggiornamento / Last updated: 14/11/2026

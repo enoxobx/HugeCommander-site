@@ -1,3 +1,7 @@
+---
+title: Problemi noti
+alt: /KNOWN-ISSUES#english
+---
 # HugeCommander — Problemi noti / Known issues
 
 Ultimo aggiornamento / Last updated: 14/11/2026 (versione / version 0.1.5)

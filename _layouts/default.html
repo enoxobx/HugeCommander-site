@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{%- assign en = false -%}
+{%- if page.lang == "en" -%}{%- assign en = true -%}{%- endif -%}
+<html lang="{% if en %}en{% else %}it{% endif %}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>{% if page.title %}{{ page.title }} · {% endif %}HugeCommander</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% elsif en %}A fast, keyboard-first dual-pane file manager for Windows.{% else %}{{ site.description }}{% endif %}">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body class="{{ page.kind | default: 'doc' }}"{% if page.toc %} data-toc="{% if en %}Contents{% else %}In questa guida{% endif %}"{% endif %}>
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="{% if en %}{{ '/en' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">
+      <img src="{{ '/assets/icon.png' | relative_url }}" alt="" width="28" height="28">
+      <span>HugeCommander</span>
+    </a>
+    <nav class="links" aria-label="{% if en %}Pages{% else %}Pagine{% endif %}">
+      {%- if en %}
+      <a href="{{ '/guide' | relative_url }}"{% if page.url == '/guide' or page.url == '/guide.html' %} aria-current="page"{% endif %}>Guide</a>
+      <a href="{{ '/privacy' | relative_url }}#english"{% if page.url contains 'privacy' %} aria-current="page"{% endif %}>Privacy</a>
+      <a href="{{ '/KNOWN-ISSUES' | relative_url }}#english"{% if page.url contains 'KNOWN' %} aria-current="page"{% endif %}>Known issues</a>
+      {%- else %}
+      <a href="{{ '/guida' | relative_url }}"{% if page.url == '/guida' or page.url == '/guida.html' %} aria-current="page"{% endif %}>Guida</a>
+      <a href="{{ '/privacy' | relative_url }}"{% if page.url contains 'privacy' %} aria-current="page"{% endif %}>Privacy</a>
+      <a href="{{ '/KNOWN-ISSUES' | relative_url }}"{% if page.url contains 'KNOWN' %} aria-current="page"{% endif %}>Problemi noti</a>
+      {%- endif %}
+    </nav>
+    {%- if page.alt %}
+    <a class="lang" href="{{ page.alt | relative_url }}" hreflang="{% if en %}it{% else %}en{% endif %}">{% if en %}Italiano{% else %}English{% endif %}</a>
+    {%- endif %}
+  </div>
+</header>
+<main>
+{{ content }}
+</main>
+<footer class="bottom">
+  <div class="bar">
+    <span>© 2026 HugeCode Labs</span>
+    <span class="grow"></span>
+    {%- if en %}
+    <a href="{{ '/guide' | relative_url }}">Guide</a>
+    <a href="{{ '/privacy' | relative_url }}#english">Privacy</a>
+    <a href="{{ '/KNOWN-ISSUES' | relative_url }}#english">Known issues</a>
+    {%- else %}
+    <a href="{{ '/guida' | relative_url }}">Guida</a>
+    <a href="{{ '/privacy' | relative_url }}">Privacy</a>
+    <a href="{{ '/KNOWN-ISSUES' | relative_url }}">Problemi noti</a>
+    {%- endif %}
+  </div>
+</footer>
+<script src="{{ '/assets/site.js' | relative_url }}" defer></script>
+</body>
+</html>

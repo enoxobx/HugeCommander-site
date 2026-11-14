@@ -1,5 +1,9 @@
-Italiano: [guida](guida.md)
-
+---
+title: Guide
+lang: en
+toc: true
+alt: /guida
+---
 # HugeCommander — user guide
 
 This guide explains how to use HugeCommander. Each section says what a feature
