@@ -80,7 +80,7 @@ img { max-width: 100%; height: auto; }
   margin-right: auto;
 }
 .brand:hover { text-decoration: none; }
-.brand img { border-radius: 7px; }
+.brand img { display: block; }
 .links { display: flex; gap: 4px; }
 .links a, .lang {
   color: var(--text-2);
@@ -108,7 +108,7 @@ img { max-width: 100%; height: auto; }
   padding: 72px 24px 0;
   text-align: center;
 }
-.hero-icon { border-radius: 20px; box-shadow: var(--shadow); }
+.hero-icon { filter: drop-shadow(0 6px 16px rgba(0, 0, 0, .18)); }
 .hero h1 {
   font-size: clamp(30px, 5vw, 48px);
   line-height: 1.12;
