@@ -4,7 +4,7 @@ alt: /KNOWN-ISSUES#english
 ---
 # HugeCommander — Problemi noti / Known issues
 
-Ultimo aggiornamento / Last updated: 14/11/2026 (versione / version 0.1.5)
+Ultimo aggiornamento / Last updated: 19/11/2026 (versione / version 0.1.7)
 
 - [Italiano](#italiano)
 - [English](#english)
@@ -13,10 +13,9 @@ Ultimo aggiornamento / Last updated: 14/11/2026 (versione / version 0.1.5)
 
 ## Italiano
 
-**«Annulla» non interrompe la copia di un singolo file grande.** Copiando o
-spostando un solo file molto grande (per esempio diversi GB su una chiavetta),
-«Annulla» aspetta che quel file sia copiato per intero prima di fermarsi.
-Con molti file, invece, si ferma al file successivo. Correzione prevista.
+**Git: la lettera di stato non segue i comandi dati fuori.** Dopo un
+`git add` o un `git commit` dati da un terminale, la lettera accanto ai file
+resta quella di prima finché la cartella non viene ricaricata (Ctrl+R).
 
 **Lettore di schede USB: espellere la scheda toglie il lettore.** Con un
 lettore di schede collegato via USB, «Rimuovi in sicurezza» sulla scheda
@@ -36,10 +35,9 @@ programma (Ctrl+,).
 
 ## English
 
-**"Cancel" does not stop the copy of a single large file.** When copying or
-moving one very large file (for example several GB to a USB stick), "Cancel"
-waits until that file is fully copied before stopping. With many files it
-stops at the next file. A fix is planned.
+**Git: the status letter does not follow commands run elsewhere.** After a
+`git add` or `git commit` run in a terminal, the letter next to the files stays
+as it was until the folder is reloaded (Ctrl+R).
 
 **USB card reader: ejecting the card removes the reader.** With a card reader
 connected over USB, "Safely remove" on the card disconnects the whole reader,

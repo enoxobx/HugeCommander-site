@@ -38,6 +38,14 @@ doppio clic li riporta a metà.
 - Ctrl+H mostra o nasconde i file nascosti.
 - Ctrl+F3, Ctrl+F4, Ctrl+F5, Ctrl+F6 ordinano per nome, estensione, data, dimensione.
 - Scrivendo delle lettere si filtra l'elenco (ricerca rapida).
+- In un repository git, accanto al nome c'è la lettera di `git status`: M
+  modificato, U nuovo, A aggiunto, R rinominato, D eliminato, ! conflitto; una
+  cartella con modifiche dentro ha un punto, i file ignorati sono in grigio.
+  Nell'intestazione del pannello c'è il ramo (↑ commit da inviare, ↓ da
+  ricevere, ● file cambiati), in basso l'ultimo commit del file selezionato.
+  Alt+Maiusc+D confronta il file con com'è nell'ultimo commit; nel
+  visualizzatore F3, Alt+B mostra chi ha scritto ogni riga e quando. Serve git
+  installato.
 
 Selezione: Spazio o Ins segnano un file, Ctrl+A tutti, Maiusc+frecce un
 intervallo. `+`, `-`, `*` del tastierino numerico selezionano un gruppo
@@ -92,6 +100,25 @@ Con più di due pannelli, il programma chiede prima quali due confrontare.
   conflitto: Ctrl+Maiusc+← mio, → loro, ↓ entrambi, ↑ la base. F7 e F8 passano
   da un conflitto all'altro, Ctrl+S salva (solo con tutti risolti), Esc chiude.
 
+## Editor
+
+F4 apre il file nell'editor interno, anche dal visualizzatore F3 alla riga che
+mostra; Maiusc+F4 lo apre con il programma esterno. Ctrl+S salva (la codifica e
+il fine riga restano quelli del file), Esc chiude e chiede se salvare. Se un
+altro programma cambia il file mentre è aperto, senza modifiche qui viene
+ricaricato da solo; con modifiche un avviso chiede se tenerle o ricaricare.
+
+- **Cercare:** Ctrl+F (le occorrenze si evidenziano mentre scrivi), F3 e
+  Maiusc+F3 per la successiva e la precedente; Alt+C distingue maiuscole e
+  minuscole, Alt+R usa un'espressione regolare. Ctrl+H sostituisce: Invio una
+  alla volta, Ctrl+Alt+Invio tutte. Ctrl+G va a una riga.
+- **Righe:** Ctrl+D duplica, Alt+↑/↓ sposta, Ctrl+Maiusc+K elimina, Ctrl+/
+  commenta o toglie il commento, Tab e Maiusc+Tab cambiano il rientro.
+- **Git:** a sinistra dei numeri una barretta segna le righe cambiate
+  dall'ultimo commit (verde aggiunte, arancione modificate, rossa dove ne
+  mancano).
+- Alt+W manda a capo le righe lunghe.
+
 ## Anteprima
 
 - **Ctrl+Q:** anteprima nell'altro pannello, aggiornata mentre ti muovi.
@@ -109,11 +136,33 @@ Con più di due pannelli, il programma chiede prima quali due confrontare.
   amministratore. Si attiva e si spegne nelle impostazioni.
 - **Ricerca nel testo:** ogni risultato mostra la prima riga trovata. Invio apre
   il file a quella riga. Salta i file binari, quelli oltre 32 MB e quelli solo nel cloud.
+- **Filtri:** nel nome si possono aggiungere `ext:pdf` (anche `ext:jpg;png`),
+  `dim:>100mb` (o `<`, `>=`, `1mb..10mb`), `dm:oggi` (`ieri`, `settimana`,
+  `mese`, `anno`, una data come `2024`, `05/2024`, `12/05/2024`, anche con `>`
+  `<` `..`), `cartella:` o `file:`. Esempio: `fattura ext:pdf dm:anno`.
+  Valgono anche le parole di Everything (`size:`, `today`, `folder:`).
+- **File doppi:** scrivi `doppi:` (con altri filtri se vuoi, per esempio
+  `doppi: ext:jpg dim:>1mb`) e premi Invio: trova i file con lo stesso
+  contenuto, confrontandoli davvero. I gruppi partono da quelli che liberano
+  più spazio, il file più vecchio per primo. Ins segna un file, Ctrl+Maiusc+A
+  segna tutte le copie tranne la più vecchia, F8 manda i segnati nel Cestino
+  (Ctrl+Z li riporta).
 
-## Archivi zip, rete e preferiti
+## Spazio occupato
 
-- **Zip:** Invio su un `.zip` lo apre come una cartella; F5 copia fuori. Dentro
-  un archivio non si scrive. Alt+F5 comprime in zip, Alt+F9 estrae.
+Ctrl+Maiusc+U mostra cosa occupa spazio nella cartella del pannello: a sinistra
+cartelle e file dal più grande, con una barra e la percentuale; a destra il
+treemap, dove ogni rettangolo è grande quanto pesa e le cartelle mostrano cosa
+contengono, con i file colorati per tipo. Invio o doppio clic entra in una
+cartella (o mostra il file nel pannello), Backspace sale, Esc chiude. Con
+l'indice dei dischi si apre subito anche per un disco intero.
+
+## Archivi, rete e preferiti
+
+- **Archivi:** Invio su un `.zip`, `.7z`, `.tar` o `.tar.gz` lo apre come una
+  cartella, con l'anteprima; F5 copia fuori. Dentro un archivio non si scrive.
+  Alt+F5 comprime: il formato segue il nome che scrivi (`.zip` se non lo
+  cambi). Alt+F9 estrae. I file rar non sono supportati.
 - **Rete:** scrivi `\\server` per l'elenco delle condivisioni (Ctrl+L). Se serve,
   Windows chiede le credenziali. Backspace torna all'elenco.
 - **Preferiti:** Ctrl+D (1–9 per aprire, Canc per togliere), oppure la stella
@@ -170,7 +219,8 @@ Il file resta sul tuo computer: allegalo tu, se vuoi, quando segnali il problema
 | Ctrl+M | Rinomina multipla |
 | Ctrl+Z | Annulla l'ultima operazione |
 | Ctrl+Q / F3 | Anteprima nel pannello / a tutta finestra |
-| Alt+F7 | Cerca |
+| Alt+F7 | Cerca (anche `doppi:` per i file doppi) |
+| Ctrl+Maiusc+U | Spazio occupato |
 | Maiusc+F2 | Confronta cartelle |
 | Ctrl+Maiusc+F5 | Sincronizza cartelle |
 | Ctrl+Maiusc+D | Confronta file |

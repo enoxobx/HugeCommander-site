@@ -38,6 +38,13 @@ middle.
 - Ctrl+H shows or hides hidden files.
 - Ctrl+F3, Ctrl+F4, Ctrl+F5, Ctrl+F6 sort by name, extension, date, size.
 - Typing letters filters the list (quick search).
+- In a git repository, each name shows the letter of `git status`: M modified,
+  U untracked, A added, R renamed, D deleted, ! conflict; a folder with changes
+  inside gets a dot, ignored files are greyed. The pane header shows the
+  branch (↑ commits to push, ↓ to pull, ● files changed), the status bar the
+  last commit of the selected file. Alt+Shift+D compares the file with the
+  last commit; in the F3 viewer, Alt+B shows who wrote each line and when.
+  Needs git installed.
 
 Selection: Space or Insert marks a file, Ctrl+A all, Shift+arrows a range.
 Numpad `+`, `-`, `*` select a group (`*.txt`), deselect it, invert the
@@ -92,6 +99,24 @@ With more than two panes, the app first asks which two to compare.
   conflict: Ctrl+Shift+← mine, → theirs, ↓ both, ↑ the base. F7 and F8 move
   between conflicts, Ctrl+S saves (only when all are resolved), Esc closes.
 
+## Editor
+
+F4 opens the file in the built-in editor, also from the F3 viewer at the line
+it shows; Shift+F4 opens it with the external program. Ctrl+S saves (keeping
+the file's encoding and line breaks), Esc closes and asks whether to save. If
+another program changes the file while it is open, it is reloaded on its own
+when there are no changes here; with changes a notice asks whether to keep
+them or reload.
+
+- **Find:** Ctrl+F (matches light up as you type), F3 and Shift+F3 for next
+  and previous; Alt+C matches case, Alt+R uses a regular expression. Ctrl+H
+  replaces: Enter one at a time, Ctrl+Alt+Enter all. Ctrl+G goes to a line.
+- **Lines:** Ctrl+D duplicates, Alt+↑/↓ moves, Ctrl+Shift+K deletes, Ctrl+/
+  comments or uncomments, Tab and Shift+Tab change the indentation.
+- **Git:** left of the line numbers a bar marks the lines changed since the
+  last commit (green added, orange modified, red where lines are missing).
+- Alt+W wraps long lines.
+
 ## Preview
 
 - **Ctrl+Q:** preview in the other pane, updated as you move. Ctrl+→ (or a
@@ -108,11 +133,33 @@ With more than two panes, the app first asks which two to compare.
   on or off in the settings.
 - **Text search:** each result shows the first matching line. Enter opens the
   file at that line. It skips binary files, files over 32 MB and cloud-only files.
+- **Filters:** add to the name `ext:pdf` (also `ext:jpg;png`), `size:>100mb`
+  (or `<`, `>=`, `1mb..10mb`), `dm:today` (`yesterday`, `thisweek`,
+  `thismonth`, `thisyear`, a date such as `2024`, `2024-05`, `12/05/2024`,
+  also with `>` `<` `..`), `folder:` or `file:`. Example: `invoice ext:pdf
+  dm:thisyear`. The Italian words work too (`dim:`, `oggi`, `cartella:`).
+- **Duplicate files:** type `dupe:` (with other filters if you like, e.g.
+  `dupe: ext:jpg size:>1mb`) and press Enter: it finds files with the same
+  content, really comparing them. Groups that free the most space come first,
+  the oldest file first. Insert marks a file, Ctrl+Shift+A marks every copy
+  but the oldest, F8 sends the marked ones to the Recycle Bin (Ctrl+Z brings
+  them back).
 
-## Zip archives, network and favorites
+## Disk usage
 
-- **Zip:** Enter on a `.zip` opens it like a folder; F5 copies out. Nothing can be
-  written inside an archive. Alt+F5 packs to zip, Alt+F9 extracts.
+Ctrl+Shift+U shows what takes space in the pane's folder: on the left its
+folders and files, biggest first, with a bar and the share; on the right the
+treemap, where each rectangle is as big as what it weighs and folders show
+what is inside them, files coloured by kind. Enter or a double click opens a
+folder (or shows the file in its pane), Backspace goes up, Esc closes. With
+the drive index it opens at once, even for a whole drive.
+
+## Archives, network and favorites
+
+- **Archives:** Enter on a `.zip`, `.7z`, `.tar` or `.tar.gz` opens it like a
+  folder, with preview; F5 copies out. Nothing can be written inside an
+  archive. Alt+F5 packs: the format follows the name you type (`.zip` unless
+  you change it). Alt+F9 extracts. rar files are not supported.
 - **Network:** type `\\server` for the list of shares (Ctrl+L). If needed,
   Windows asks for credentials. Backspace returns to the list.
 - **Favorites:** Ctrl+D (1–9 to open, Delete to remove), or the star in the pane header.
@@ -169,7 +216,8 @@ report the problem.
 | Ctrl+M | Multi-rename |
 | Ctrl+Z | Undo last operation |
 | Ctrl+Q / F3 | Preview in pane / full window |
-| Alt+F7 | Search |
+| Alt+F7 | Search (also `dupe:` for duplicate files) |
+| Ctrl+Shift+U | Disk usage |
 | Shift+F2 | Compare folders |
 | Ctrl+Shift+F5 | Synchronize folders |
 | Ctrl+Shift+D | Compare files |
