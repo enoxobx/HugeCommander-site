@@ -72,14 +72,28 @@ intervallo. `+`, `-`, `*` del tastierino numerico selezionano un gruppo
 - **Checksum (Ctrl+Maiusc+H):** SHA-256, SHA-1 o MD5 (Tab cambia). Incollando
   il checksum pubblicato da un sito, il file uguale diventa verde.
 - Ctrl+Maiusc+C copia i percorsi completi, Alt+Maiusc+C solo i nomi.
-- Clic destro o Maiusc+F10: il menu di Windows. Maiusc+Invio: «Apri con».
+- **Clic destro**, Maiusc+F10 o il tasto Menu: il menu del programma con i
+  comandi che valgono per la selezione, ognuno con il suo tasto; in fondo
+  «Altre opzioni di Windows…» apre il menu di Windows (Maiusc+clic destro lo
+  apre subito). Maiusc+Invio: «Apri con».
+- **Barra dei tasti** in basso: F3 Visualizza, F4 Modifica, F5 Copia, F6
+  Sposta, F7 Nuova cartella, F8 Elimina, Alt+F7 Cerca, anche con un clic. Si
+  toglie in Impostazioni › Pannelli.
+- **Palette dei comandi (Ctrl+Maiusc+P)** e il pulsante «…» nella barra in
+  alto: tutti i comandi per nome, con il loro tasto; scrivi per cercare,
+  Invio esegue.
 
 ## Confronto di cartelle e sincronizzazione
 
 - **Maiusc+F2** confronta le due cartelle su tutto l'albero. Colori: viola
   solo da un lato, verde più recente, grigio più vecchio, arancione diverso. Un
-  secondo Maiusc+F2 mostra solo le differenze.
-- **Ctrl+Maiusc+F2:** criteri del confronto (data, dimensione, contenuto, filtri).
+  secondo Maiusc+F2 mostra solo le differenze, un terzo spegne il confronto.
+- **Righe allineate:** come in Beyond Compare, lo stesso file sta sulla stessa
+  riga nei due pannelli; dove manca da un lato c'è una riga vuota tratteggiata.
+  I due lati scorrono insieme.
+- **Criteri:** sopra i pannelli si vedono i criteri attivi; un clic su uno lo
+  accende o lo spegne e ripete il confronto. «Criteri…» o Ctrl+Maiusc+F2 apre
+  tutti i criteri (data, dimensione, contenuto, filtri).
 - **Ctrl+Maiusc+Y:** la navigazione si muove insieme nei due lati.
 - **Ctrl+Maiusc+→ / ←:** copia la selezione a destra o a sinistra.
 - **Ctrl+Maiusc+F5:** sincronizza, con l'elenco di ogni copia e il suo verso
@@ -91,19 +105,23 @@ Con più di due pannelli, il programma chiede prima quali due confrontare.
 ## Confronto e unione di file
 
 - **Ctrl+Maiusc+D** confronta due file di testo (uno per pannello, o due
-  marcati). Le differenze si saltano con F7 e F8. Le frecce accanto a ogni
-  blocco lo copiano; Invio o F2 modifica la riga, Tab cambia lato, Ctrl+S salva,
+  marcati). Le differenze si saltano con F7 e F8 o con ◀ ▶. Le frecce accanto
+  a ogni blocco lo copiano; Invio, F2 o un doppio clic modifica la riga, Tab
+  (o un clic sul nome del file) cambia lato, Ctrl+S salva,
   Ctrl+Z annulla. Alt+1 tutte le righe, Alt+2 solo le differenze, Alt+3 solo
   le uguali, Alt+4 ignora le differenze minori (spazi, righe vuote).
 - **Ctrl+Maiusc+M**, unione a 3 vie (base, mio, loro): su un file con i
   conflitti di git, su tre file marcati o su due (chiede la base). Per ogni
   conflitto: Ctrl+Maiusc+← mio, → loro, ↓ entrambi, ↑ la base. F7 e F8 passano
-  da un conflitto all'altro, Ctrl+S salva (solo con tutti risolti), Esc chiude.
+  da un conflitto all'altro, Ctrl+Z annulla, Ctrl+S salva (solo con tutti
+  risolti), Esc chiude. Ogni comando ha anche il suo pulsante.
 
 ## Editor
 
 F4 apre il file nell'editor interno, anche dal visualizzatore F3 alla riga che
-mostra; Maiusc+F4 lo apre con il programma esterno. Ctrl+S salva (la codifica e
+mostra; Maiusc+F4 lo apre con l'editor esterno, che scegli in Impostazioni ›
+Generale (Notepad++, VS Code o qualsiasi programma; `%1` negli argomenti è il
+file). I comandi principali sono anche pulsanti in alto. Ctrl+S salva (la codifica e
 il fine riga restano quelli del file), Esc chiude e chiede se salvare. Se un
 altro programma cambia il file mentre è aperto, senza modifiche qui viene
 ricaricato da solo; con modifiche un avviso chiede se tenerle o ricaricare.
@@ -140,7 +158,9 @@ ricaricato da solo; con modifiche un avviso chiede se tenerle o ricaricare.
   `dim:>100mb` (o `<`, `>=`, `1mb..10mb`), `dm:oggi` (`ieri`, `settimana`,
   `mese`, `anno`, una data come `2024`, `05/2024`, `12/05/2024`, anche con `>`
   `<` `..`), `cartella:` o `file:`. Esempio: `fattura ext:pdf dm:anno`.
-  Valgono anche le parole di Everything (`size:`, `today`, `folder:`).
+  Valgono anche le parole di Everything (`size:`, `today`, `folder:`). Il
+  pulsante «?» accanto al nome mostra tutta la sintassi con esempi: un clic
+  ne aggiunge uno.
 - **File doppi:** scrivi `doppi:` (con altri filtri se vuoi, per esempio
   `doppi: ext:jpg dim:>1mb`) e premi Invio: trova i file con lo stesso
   contenuto, confrontandoli davvero. I gruppi partono da quelli che liberano
@@ -154,7 +174,8 @@ Ctrl+Maiusc+U mostra cosa occupa spazio nella cartella del pannello: a sinistra
 cartelle e file dal più grande, con una barra e la percentuale; a destra il
 treemap, dove ogni rettangolo è grande quanto pesa e le cartelle mostrano cosa
 contengono, con i file colorati per tipo. Invio o doppio clic entra in una
-cartella (o mostra il file nel pannello), Backspace sale, Esc chiude. Con
+cartella (o mostra il file nel pannello), Backspace o «Su» sale, Esc o
+«Chiudi» chiude. Con
 l'indice dei dischi si apre subito anche per un disco intero.
 
 ## Archivi, rete e preferiti
@@ -163,8 +184,11 @@ l'indice dei dischi si apre subito anche per un disco intero.
   cartella, con l'anteprima; F5 copia fuori. Dentro un archivio non si scrive.
   Alt+F5 comprime: il formato segue il nome che scrivi (`.zip` se non lo
   cambi). Alt+F9 estrae. I file rar non sono supportati.
-- **Rete:** scrivi `\\server` per l'elenco delle condivisioni (Ctrl+L). Se serve,
-  Windows chiede le credenziali. Backspace torna all'elenco.
+- **Rete e NAS:** scrivi `\\server` per l'elenco delle condivisioni (Ctrl+L),
+  oppure `\\server\condivisione`. Se il server chiede di accedere, compare la
+  finestra «Accesso alla rete»: nome utente (anche `DOMINIO\utente`) e
+  password; «Ricorda le credenziali» le salva nel Gestore credenziali di
+  Windows. Backspace torna all'elenco.
 - **Preferiti:** Ctrl+D (1–9 per aprire, Canc per togliere), oppure la stella
   nell'intestazione del pannello.
 
@@ -193,6 +217,14 @@ aggiungerne uno. «Ripristina predefinite» annulla le modifiche.
 **Ctrl+,** apre le impostazioni (anche l'ingranaggio nella barra): ↑↓ scelgono,
 Ctrl+↑↓ cambiano sezione, ← → cambiano il valore, Spazio o Invio attivano. Le
 modifiche valgono subito. Ctrl+Maiusc+L passa da tema Sistema a Chiaro a Scuro.
+
+**Aspetto:** scegli quale tema usare quando Windows è chiaro e quale quando è
+scuro. «Modifica tema…» cambia dal vivo ogni colore (interfaccia e sintassi,
+con un avviso se il testo si legge male), i caratteri, le dimensioni e
+l'altezza delle righe. I temi propri si creano, duplicano, rinominano,
+esportano e importano; «Da VS Code…» importa i temi del VS Code installato.
+I temi «Chiaro» e «Scuro» non si toccano: la prima modifica ne fa una copia.
+
 La lingua segue Windows (italiano o inglese); si cambia nelle impostazioni, dal
 prossimo avvio.
 
